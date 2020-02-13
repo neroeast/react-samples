@@ -16,10 +16,7 @@ steps:
     organization: 'neroeast'
     scannerMode: 'MSBuild'
     projectKey: 'neroeast_react-samples'
-- task: SonarCloudAnalyze@1
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -30,3 +27,8 @@ steps:
     npm run build
     npm audit fix
   displayName: 'npm install and build'
+
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'

@@ -10,12 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-
 - task: SonarCloudPrepare@1
   inputs:
+    SonarCloud: 'SonarCloud'
     organization: 'neroeast'
-    scannerMode: 'CLI'
-    configMode: 'file'
+    scannerMode: 'MSBuild'
+    projectKey: 'neroeast_react-samples'
 
 - task: NodeTool@0
   inputs:

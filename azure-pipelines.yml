@@ -10,11 +10,17 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- task: SonarCloudPrepare@1
+  inputs:
+    organization: 'neroeast'
+    scannerMode: 'CLI'
+    configMode: 'file'
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
-- task: SonarQubeAnalyze@4
 
 - script: |
     npm install
